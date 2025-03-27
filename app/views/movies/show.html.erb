@@ -5,6 +5,10 @@
     </h1>
 
     <div>
+      <a href="/movies/<%= @the_movie.id %>/edit">Edit</a>
+    </div>
+
+    <div>
       <div>
         <a href="/movies">
           Go back
@@ -56,51 +60,3 @@
     </dl>
   </div>
 </div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit movie
-    </h2>
-
-    <form action="/movies/<%= @the_movie.id %>"  method="post" data-turbo="false">
-
-      <input type="hidden" name="_method" value="patch">
-
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-      <div>
-        <label for="title">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" value="<%= @the_movie.title %>">
-      </div>
-
-      <div>
-        <label for="description">
-          Description
-        </label>
-
-        <input type="text" id="description" name="description" value="<%= @the_movie.description %>">
-      </div>
-
-      <div>
-        <label for="released">
-          Released
-        </label>
-
-        <input type="text" id="released" name="released" value="<%= @the_movie.released %>">
-      </div>
-
-      <button>
-        Update movie
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
