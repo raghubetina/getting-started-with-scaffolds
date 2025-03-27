@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+  def new
+  end
+
   def index
     matching_movies = Movie.all
 
