@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: movies
+# Table name: books
 #
 #  id          :bigint           not null, primary key
 #  description :text
@@ -9,6 +9,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Movie < ApplicationRecord
+class Book < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 end
