@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("path_id")
+    the_id = params.fetch("id")
 
     matching_movies = Movie.where({ :id => the_id })
 
@@ -19,9 +19,9 @@ class MoviesController < ApplicationController
 
   def create
     the_movie = Movie.new
-    the_movie.title = params.fetch("query_title")
-    the_movie.description = params.fetch("query_description")
-    the_movie.released = params.fetch("query_released")
+    the_movie.title = params.fetch("title")
+    the_movie.description = params.fetch("description")
+    the_movie.released = params.fetch("released")
 
     if the_movie.valid?
       the_movie.save
@@ -32,12 +32,12 @@ class MoviesController < ApplicationController
   end
 
   def update
-    the_id = params.fetch("path_id")
+    the_id = params.fetch("id")
     the_movie = Movie.where({ :id => the_id }).first
 
-    the_movie.title = params.fetch("query_title")
-    the_movie.description = params.fetch("query_description")
-    the_movie.released = params.fetch("query_released")
+    the_movie.title = params.fetch("title")
+    the_movie.description = params.fetch("description")
+    the_movie.released = params.fetch("released")
 
     if the_movie.valid?
       the_movie.save
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
+    the_id = params.fetch("id")
     the_movie = Movie.where({ :id => the_id }).first
 
     the_movie.destroy
