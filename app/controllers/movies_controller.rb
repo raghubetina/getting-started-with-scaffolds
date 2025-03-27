@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def new
+    @the_movie = Movie.new
   end
 
   def index
@@ -21,16 +22,16 @@ class MoviesController < ApplicationController
   end
 
   def create
-    the_movie = Movie.new
-    the_movie.title = params.fetch("title")
-    the_movie.description = params.fetch("description")
-    the_movie.released = params.fetch("released")
+    @the_movie = Movie.new
+    @the_movie.title = params.fetch("title")
+    @the_movie.description = params.fetch("description")
+    @the_movie.released = params.fetch("released")
 
-    if the_movie.valid?
-      the_movie.save
-      redirect_to("/movies", { :notice => "Movie created successfully." })
+    if @the_movie.valid?
+      @the_movie.save
+      redirect_to("/movies", { :notice => "Movie was successfully created" })
     else
-      redirect_to("/movies", { :alert => the_movie.errors.full_messages.to_sentence })
+      render({ :template => "movies/new" })
     end
   end
 
