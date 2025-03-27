@@ -14,10 +14,10 @@
       Add a new movie
     </h2>
 
-    <form action="/insert_movie" method="post" data-turbo="false">
+    <form action="/movies" method="post" data-turbo="false">
 
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      
+
       <div>
         <label for="title_box">
           Title
